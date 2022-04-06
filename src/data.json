@@ -1,0 +1,41 @@
+{
+  "size": [
+    {
+      "text": "s",
+      "price": 10,
+      "id":"s10s"
+    },
+    {
+      "text": "m",
+      "price": 15,
+      "id":"s15m"
+    },
+    {
+      "text": "l",
+      "price": 25,
+      "id":"s25l"
+    }
+  ],
+  "topping": [
+    {
+      "text": "olives",
+      "price": 3,
+      "id":"t3o"
+    },
+    {
+      "text": "pepperoni",
+      "price": 4,
+      "id":"t4p"
+    },
+    {
+      "text": "mushrooms",
+      "price": 2,
+      "id":"t2m"
+    },
+    {
+      "text": "pepper",
+      "price": 2,
+      "id":"t2p"
+    }
+  ]
+}
