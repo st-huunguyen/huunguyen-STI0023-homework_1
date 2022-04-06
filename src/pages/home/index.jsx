@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import style from './style.module.scss';
-import Option from '../shared/partials/option';
+import Option from '../../shared/partials/option';
 import data from '../../data.json';
 import { selectSize, selectTopping } from '../../store/actions/ordered';
 
