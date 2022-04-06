@@ -18,7 +18,17 @@ const schema = yup
         /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
         'Is not in correct format'
       ),
-    address: yup.string().required('Address is required'),
+    houseNumber: yup.string().required("House's number is required"),
+    street: yup.string().required('Street is required'),
+    city: yup.string().required('City is required'),
+    postalCode: yup
+      .string()
+      .required('Postal code is required')
+      .test(
+        'errorPostalCode',
+        'error postal code',
+        (val) => CardValidator.postalCode(val).isValid === true
+      ),
     cardNumber: yup
       .string()
       .required('Card number is required')
@@ -93,7 +103,7 @@ const Payment = () => {
         alt='banner-pizza'
       />
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={style.formTitle}>Order info</h2>
+        <h2 className={style.formTitle}>Customer Information</h2>
         <div className={style.formDouble}>
           <label>
             <span className={style.labelText}>Name :</span>
@@ -118,17 +128,57 @@ const Payment = () => {
             )}
           </label>
         </div>
-        <label>
-          <span className={style.labelText}>Address :</span>
-          <input
-            className={style.formInput}
-            placeholder='Your address...'
-            {...register('address', { required: true })}
-          />
-          {errors.address && (
-            <span className={style.error}>{errors.address.message}</span>
-          )}
-        </label>
+
+        <div className={style.formDouble}>
+          <label>
+            <span className={style.labelText}>House's number</span>
+            <input
+              className={style.formInput}
+              {...register('houseNumber', { required: true })}
+              placeholder="Your house's number..."
+            />
+            {errors.houseNumber && (
+              <span className={style.error}>{errors.houseNumber.message}</span>
+            )}
+          </label>
+          <label>
+            <span className={style.labelText}>Street :</span>
+            <input
+              className={style.formInput}
+              placeholder="Street's name..."
+              {...register('street', { required: true })}
+            />
+            {errors.street && (
+              <span className={style.error}>{errors.street.message}</span>
+            )}
+          </label>
+        </div>
+
+        <div className={style.formDouble}>
+          <label>
+            <span className={style.labelText}>City</span>
+            <input
+              className={style.formInput}
+              {...register('city', { required: true })}
+              placeholder="Your city..."
+            />
+            {errors.city && (
+              <span className={style.error}>{errors.city.message}</span>
+            )}
+          </label>
+          <label>
+            <span className={style.labelText}>Postal code</span>
+            <input
+              className={style.formInput}
+              {...register('postalCode', { required: true })}
+              placeholder='postal code...'
+            />
+            {errors.postalCode && (
+              <span className={style.error}>{errors.postalCode.message}</span>
+            )}
+          </label>
+        </div>
+
         <label>
           <span className={style.labelText}>Credit card :</span>
           <input
