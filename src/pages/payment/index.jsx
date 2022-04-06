@@ -103,7 +103,7 @@ const Payment = () => {
         alt='banner-pizza'
       />
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-        <h2 className={style.formTitle}>Customer Information</h2>
+        <h2 className={style.formTitle}>Customer Info</h2>
         <div className={style.formDouble}>
           <label>
             <span className={style.labelText}>Name :</span>
